@@ -1,0 +1,52 @@
+:root {
+    --clr-text: #fcfcfc;
+    --clr-bg: #151525;
+
+    --clr-bg-rgb: 21, 21, 37;
+    --clr-text-rgb: 255, 255, 255;
+
+
+    // Success
+    --clr-success-100: hsl(120, 100%, 97%);
+    --clr-success-200: hsl(120, 100%, 90%);
+    --clr-success-300: hsl(120, 100%, 80%);
+    --clr-success-400: hsl(120, 100%, 70%);
+    --clr-success-500: hsl(120, 100%, 60%);
+    --clr-success-600: hsl(120, 100%, 50%);
+    --clr-success-700: hsl(120, 100%, 40%);
+    --clr-success-800: hsl(120, 100%, 30%);
+    --clr-success-900: hsl(120, 100%, 20%);
+
+    // Error
+    --clr-error-100: hsl(0, 100%, 97%);
+    --clr-error-200: hsl(0, 100%, 90%);
+    --clr-error-300: hsl(0, 100%, 80%);
+    --clr-error-400: hsl(0, 100%, 70%);
+    --clr-error-500: hsl(0, 100%, 60%);
+    --clr-error-600: hsl(0, 100%, 50%);
+    --clr-error-700: hsl(0, 100%, 40%);
+    --clr-error-800: hsl(0, 100%, 30%);
+    --clr-error-900: hsl(0, 100%, 20%);
+
+    // Warning
+    --clr-warning-100: hsl(45, 100%, 97%);
+    --clr-warning-200: hsl(45, 100%, 90%);
+    --clr-warning-300: hsl(45, 100%, 80%);
+    --clr-warning-400: hsl(45, 100%, 70%);
+    --clr-warning-500: hsl(45, 100%, 60%);
+    --clr-warning-600: hsl(45, 100%, 50%);
+    --clr-warning-700: hsl(45, 100%, 40%);
+    --clr-warning-800: hsl(45, 100%, 30%);
+    --clr-warning-900: hsl(45, 100%, 20%);
+
+    // Information
+    --clr-info-100: hsl(210, 100%, 97%);
+    --clr-info-200: hsl(210, 100%, 90%);
+    --clr-info-300: hsl(210, 100%, 80%);
+    --clr-info-400: hsl(210, 100%, 70%);
+    --clr-info-500: hsl(210, 100%, 60%);
+    --clr-info-600: hsl(210, 100%, 50%);
+    --clr-info-700: hsl(210, 100%, 40%);
+    --clr-info-800: hsl(210, 100%, 30%);
+    --clr-info-900: hsl(210, 100%, 20%);
+}

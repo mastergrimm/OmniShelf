@@ -1,0 +1,42 @@
+$mobile: 768px;
+$tablet: 1024px;
+$laptop: 1280px;
+$desktop: 1440px;
+$ultra: 1920px;
+
+@mixin mobile {
+	@media (max-width: $mobile) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (max-width: $tablet) {
+		@content;
+	}
+}
+
+@mixin laptop {
+	@media (max-width: $laptop) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (max-width: $desktop) {
+		@content;
+	}
+}
+
+@mixin ultra {
+	@media (max-width: $ultra) {
+		@content;
+	}
+}
+@mixin flexbox($direction: row, $align: center, $justify: center, $gap: 0) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+	gap: $gap;
+}

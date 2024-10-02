@@ -1,0 +1,76 @@
+@use "mixins" as *;
+
+html,
+body {
+    font-family: "inter", sans-serif;
+
+    font-size: 16px;
+    line-height: var(--line-height-normal);
+    font-weight: 400;
+
+    color: var(--clr-text);
+    background-color: var(--clr-bg);
+
+    @include desktop {
+        font-size: 12px;
+    }
+
+}
+
+:root {
+    --text-tn: clamp(0.85rem, 0.4237rem + 0.4855vw, 0.9rem);
+    --text-xs: clamp(1rem, 0.9614rem + 0.1932vw, 1.1111rem);
+    --text-sm: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+    --text-md: clamp(1.2656rem, 1.2167rem + 0.2446vw, 1.4063rem);
+    --text-lg: clamp(1.4238rem, 1.3688rem + 0.2751vw, 1.582rem);
+    --text-xl: clamp(1.6018rem, 1.5399rem + 0.3095vw, 1.7798rem);
+    --text-2xl: clamp(1.802rem, 1.7324rem + 0.3482vw, 2.0023rem);
+    --text-3xl: clamp(2.0273rem, 1.9489rem + 0.3917vw, 2.2525rem);
+    --text-4xl: clamp(2.2807rem, 2.1926rem + 0.4407vw, 2.5341rem);
+    --text-5xl: clamp(2.5658rem, 2.4666rem + 0.4958vw, 2.8509rem);
+    --text-6xl: clamp(2.8865rem, 2.775rem + 0.5578vw, 3.2072rem);
+    --text-7xl: clamp(3.2479rem, 3.1242rem + 0.6271vw, 3.5797rem);
+    --text-8xl: clamp(3.6553rem, 3.5194rem + 0.7043vw, 4.0329rem);
+    --text-9xl: clamp(4.1159rem, 3.968rem + 0.7896vw, 4.5479rem);
+    --text-10xl: clamp(4.6375rem, 4.4717rem + 0.8834vw, 5.145rem);
+    --text-12xl: clamp(5.565rem, 5.3711rem + 1.0741vw, 6.1875rem);
+    --text-13xl: clamp(6.4925rem, 6.2705rem + 1.2613vw, 7.13rem);
+    --text-14xl: clamp(7.42rem, 7.1538rem + 1.4359vw, 8.26rem);
+    --text-16xl: clamp(9.275rem, 8.9365rem + 1.7977vw, 10.33rem);
+
+
+    --spacing-1: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
+    --spacing-2: clamp(0.5625rem, 0.5408rem + 0.1087vw, 0.625rem);
+    --spacing-3: clamp(0.875rem, 0.8533rem + 0.1087vw, 0.9375rem);
+    --spacing-4: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+    --spacing-5: clamp(1.6875rem, 1.6223rem + 0.3261vw, 1.875rem);
+    --spacing-6: clamp(2.25rem, 2.163rem + 0.4348vw, 2.5rem);
+    --spacing-7: clamp(3.375rem, 3.2446rem + 0.6522vw, 3.75rem);
+    --spacing-8: clamp(4.5rem, 4.3261rem + 0.8696vw, 5rem);
+    --spacing-9: clamp(6.75rem, 6.4891rem + 1.3043vw, 7.5rem);
+    --spacing-10: clamp(9rem, 8.6522rem + 1.7391vw, 10rem);
+    --spacing-11: clamp(11.25rem, 10.8152rem + 2.1739vw, 12.5rem);
+    --spacing-12: clamp(13.5rem, 12.9783rem + 2.6087vw, 15rem);
+    --spacing-13: clamp(15.75rem, 15.1413rem + 3.0435vw, 17.5rem);
+    --spacing-14: clamp(18rem, 17.3043rem + 3.4783vw, 20rem);
+
+    --rounded-sm: 0.125rem;
+    --rounded-md: 0.25rem;
+    --rounded-lg: 0.5rem;
+    --rounded-full: 9999px;
+
+    --z-top: 999;
+    --z-middle: 500;
+    --z-bottom: 100;
+    --z-base: 1;
+
+    --header-font: rift, sans-serif;
+    --title-font: "indivisible", sans-serif;
+    --body-font: "inter", sans-serif;
+    --fancy-font: "kepler-std", serif;
+
+    --line-height-loose: 1.75;
+    --line-height-normal: 1.5;
+    --line-height-tight: 1.25;
+    --line-height-none: 1;
+}
