@@ -11,13 +11,15 @@
 
 	export let data: PageData;
 
-	$: movies = data.movies;
-	$: tvShows = data.tvShows;
-	$: books = data.books;
-	$: anime = data.anime;
-	$: manga = data.manga;
-	$: singleplayer = data.singleplayer;
-	$: multiplayer = data.multiplayer;
+	let rankingLimit = 20;
+
+	$: movies = data.movies.slice(0, rankingLimit);
+	$: tvShows = data.tvShows.slice(0, rankingLimit);
+	$: books = data.books.slice(0, rankingLimit);
+	$: anime = data.anime.slice(0, rankingLimit);
+	$: manga = data.manga.slice(0, rankingLimit);
+	$: singleplayer = data.singleplayer.slice(0, rankingLimit);
+	$: multiplayer = data.multiplayer.slice(0, rankingLimit);
 </script>
 
 <div class="home">
@@ -33,8 +35,8 @@
 <style lang="scss">
 	.home {
 		display: grid;
-		grid-template-columns: repeat(5, 1fr);
-		grid-gap: 1rem;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: var(--spacing-8);
 	}
 </style>
 

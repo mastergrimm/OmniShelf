@@ -6,7 +6,9 @@
 <Listing
 	title="Books"
 	items={books}
-	formAction="?/booksUpload"
+	formUpload="?/booksUpload"
+	formDelete="?/booksDelete"
 	itemKey="title"
+	itemScore="my_rating"
 	link="books"
 />

@@ -1,14 +1,14 @@
 <script lang="ts">
 	import type { PageData } from "./$types";
 
-	import Multiplayer from "$lib/components/Movies.svelte";
+	import Singleplayer from "$lib/components/Singleplayer.svelte";
 
 	export let data: PageData;
 
-	$: multiplayer = data.multiplayer;
+	$: singleplayer = data.singleplayer;
 </script>
 
 <div class="page">
-	<h1>My Multiplayer Games</h1>
-	<Multiplayer movies={multiplayer} />
+	<h1>My Singleplayer Games</h1>
+	<Singleplayer {singleplayer} />
 </div>

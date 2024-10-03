@@ -6,7 +6,9 @@
 <Listing
 	title="Multiplayer Games"
 	items={multiplayer}
-	formAction="?/multiplayerUpload"
-	itemKey="game"
+	formUpload="?/multiplayerUpload"
+	formDelete="?/multiplayerDelete"
+	itemKey="name"
+	itemScore="rating"
 	link="multiplayer"
 />

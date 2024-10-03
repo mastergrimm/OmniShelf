@@ -1,42 +1,56 @@
 import type { Actions } from './$types';
 
-const handleUpload = async (file: File, endpoint: string) => {
+async function handleRequest(endpoint: string, method: 'GET' | 'POST' | 'DELETE', file?: File) {
 	const url = `http://omnishelf-backend-1:8080${endpoint}`;
-	const uploadFormData = new FormData();
-	uploadFormData.append('file', file);
+	const options: RequestInit = { method };
+
+	if (method === 'POST' && file) {
+		const formData = new FormData();
+		formData.append('file', file);
+		options.body = formData;
+	}
+
+	if (method === 'DELETE') {
+		options.method = 'DELETE';
+	}
 
 	try {
-		const response = await fetch(url, {
-			method: 'POST',
-			body: uploadFormData
-		});
-
+		const response = await fetch(url, options);
 		if (!response.ok) {
 			throw new Error(`HTTP error! status: ${response.status}`);
 		}
-
-		const result = await response.text();
-		return {
-			status: 200,
-			body: result
-		};
+		const result = await response.json();
+		return { status: 200, body: result };
 	} catch (error) {
 		console.error('Error:', error);
 		return {
 			status: 500,
-			body: 'An error occurred while uploading the file'
+			body: `An error occurred while ${method === 'DELETE' ? 'deleting' : 'uploading'} the data`
 		};
 	}
 }
 
 export const actions: Actions = {
+	booksUpload: async ({ request }) => {
+		const formData = await request.formData();
+		const file = formData.get('books');
+		if (!(file instanceof File)) {
+			return { status: 400, body: 'No file uploaded' };
+		}
+		return handleRequest('/books', 'POST', file);
+	},
+
+	booksDelete: async () => {
+		return handleRequest('/books', 'DELETE');
+	},
+
 	moviesUpload: async ({ request }) => {
 		const formData = await request.formData();
 		const file = formData.get('movies');
 		if (!(file instanceof File)) {
 			return { status: 400, body: 'No file uploaded' };
 		}
-		return handleUpload(file, '/media');
+		return handleRequest('/media', 'POST', file);
 	},
 
 	tvShowsUpload: async ({ request }) => {
@@ -45,16 +59,11 @@ export const actions: Actions = {
 		if (!(file instanceof File)) {
 			return { status: 400, body: 'No file uploaded' };
 		}
-		return handleUpload(file, '/media');
+		return handleRequest('/media', 'POST', file);
 	},
 
-	booksUpload: async ({ request }) => {
-		const formData = await request.formData();
-		const file = formData.get('books');
-		if (!(file instanceof File)) {
-			return { status: 400, body: 'No file uploaded' };
-		}
-		return handleUpload(file, '/books');
+	mediaDelete: async () => {
+		return handleRequest('/media', 'DELETE');
 	},
 
 	animeUpload: async ({ request }) => {
@@ -63,7 +72,11 @@ export const actions: Actions = {
 		if (!(file instanceof File)) {
 			return { status: 400, body: 'No file uploaded' };
 		}
-		return handleUpload(file, '/anime');
+		return handleRequest('/anime', 'POST', file);
+	},
+
+	animeDelete: async () => {
+		return handleRequest('/anime', 'DELETE');
 	},
 
 	mangaUpload: async ({ request }) => {
@@ -72,7 +85,11 @@ export const actions: Actions = {
 		if (!(file instanceof File)) {
 			return { status: 400, body: 'No file uploaded' };
 		}
-		return handleUpload(file, '/manga');
+		return handleRequest('/manga', 'POST', file);
+	},
+
+	mangaDelete: async () => {
+		return handleRequest('/manga', 'DELETE');
 	},
 
 	singleplayerUpload: async ({ request }) => {
@@ -81,7 +98,11 @@ export const actions: Actions = {
 		if (!(file instanceof File)) {
 			return { status: 400, body: 'No file uploaded' };
 		}
-		return handleUpload(file, '/singleplayer');
+		return handleRequest('/singleplayer', 'POST', file);
+	},
+
+	singleplayerDelete: async () => {
+		return handleRequest('/singleplayer', 'DELETE');
 	},
 
 	multiplayerUpload: async ({ request }) => {
@@ -90,6 +111,10 @@ export const actions: Actions = {
 		if (!(file instanceof File)) {
 			return { status: 400, body: 'No file uploaded' };
 		}
-		return handleUpload(file, '/multiplayer');
+		return handleRequest('/multiplayer', 'POST', file);
+	},
+
+	multiplayerDelete: async () => {
+		return handleRequest('/multiplayer', 'DELETE');
 	}
 };

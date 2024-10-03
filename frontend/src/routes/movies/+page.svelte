@@ -9,6 +9,6 @@
 </script>
 
 <div class="page">
-	<h1>My Books</h1>
+	<h1>My Movies</h1>
 	<Movies {movies} />
 </div>

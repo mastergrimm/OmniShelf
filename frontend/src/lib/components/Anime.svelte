@@ -6,7 +6,9 @@
 <Listing
 	title="Anime"
 	items={anime}
-	formAction="?/animeUpload"
+	formUpload="?/animeUpload"
+	formDelete="?/animeDelete"
 	itemKey="series_title"
+	itemScore="my_score"
 	link="anime"
 />

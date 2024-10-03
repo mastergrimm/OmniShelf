@@ -89,8 +89,18 @@ func generateCreateTableSQL(tableName string, s interface{}) string {
 
 	for i := 0; i < t.NumField(); i++ {
 		field := t.Field(i)
-		columnName := field.Name
-		columnType := getSQLType(field.Type)
+		dbTag := field.Tag.Get("db")
+		if dbTag == "" || dbTag == "-" {
+			continue
+		}
+
+		parts := strings.Split(dbTag, ",")
+		columnName := parts[0]
+		columnType := "TEXT" // default type
+
+		if len(parts) > 1 {
+			columnType = parts[1]
+		}
 
 		columns = append(columns, fmt.Sprintf("%s %s", columnName, columnType))
 	}
@@ -101,19 +111,3 @@ func generateCreateTableSQL(tableName string, s interface{}) string {
 	return createTableSQL
 }
 
-func getSQLType(t reflect.Type) string {
-	switch t.Kind() {
-	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
-		return "INTEGER"
-	case reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64:
-		return "INTEGER"
-	case reflect.Float32, reflect.Float64:
-		return "REAL"
-	case reflect.Bool:
-		return "BOOLEAN"
-	case reflect.String:
-		return "TEXT"
-	default:
-		return "TEXT"
-	}
-}

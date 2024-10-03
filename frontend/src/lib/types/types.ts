@@ -96,14 +96,18 @@ export interface Manga {
 
 export interface Game {
 	id: number;
-	game: string;
-	url: string;
+	name: string;
+	edition: string;
+	platform: string;
+	format: string;
+	region: string;
+	nowPlaying: boolean;
+	backlogged: boolean;
+	ownershipStatus: string;
+	progressStatus: string;
 	rating: number;
-	category: string;
-	release_date: string;
-	platforms: string;
-	genres: string;
-	themes: string;
-	companies: string;
-	description: string;
+	initialReleaseDate: string;
+	itemReleaseDate: string;
+	addedOn: string;
+	genre: string;
 }

@@ -6,7 +6,9 @@
 <Listing
 	title="Manga"
 	items={manga}
-	formAction="?/mangaUpload"
+	formUpload="?/mangaUpload"
+	formDelete="?/mangaDelete"
 	itemKey="manga_title"
+	itemScore="my_score"
 	link="manga"
 />

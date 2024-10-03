@@ -1,10 +1,10 @@
 package server
 
 import (
-	"database/sql"
 	"encoding/csv"
 	"encoding/json"
 	"io"
+	"log"
 	"net/http"
 	"strconv"
 
@@ -25,15 +25,13 @@ func (s *Server) getAllGames(w http.ResponseWriter, r *http.Request, tableName s
 	var games []models.Game
 	for rows.Next() {
 		var game models.Game
-		var id sql.NullInt64
-		err := rows.Scan(&id, &game.Game, &game.URL, &game.Rating, &game.Category,
-			&game.Release_Date, &game.Platforms, &game.Genres, &game.Themes, &game.Companies, &game.Description)
+		err := rows.Scan(&game.Name, &game.Edition, &game.Platform, &game.Format,
+			&game.Region, &game.NowPlaying, &game.Backlogged, &game.OwnershipStatus,
+			&game.ProgressStatus, &game.Rating, &game.InitialReleaseDate, &game.ItemReleaseDate,
+			&game.AddedOn, &game.Genre)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
-		}
-		if id.Valid {
-			game.ID = int(id.Int64)
 		}
 		games = append(games, game)
 	}
@@ -50,10 +48,11 @@ func (s *Server) getAllMultiGames(w http.ResponseWriter, r *http.Request) {
 	s.getAllGames(w, r, "multiplayer")
 }
 
-func (s *Server) importGames(w http.ResponseWriter, r *http.Request, tableName string) error {
+func (s *Server) importGames(w http.ResponseWriter, r *http.Request, tableName string) {
 	file, _, err := r.FormFile("file")
 	if err != nil {
-		return err
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
 	}
 	defer file.Close()
 
@@ -61,32 +60,9 @@ func (s *Server) importGames(w http.ResponseWriter, r *http.Request, tableName s
 	var inserted, updated int
 
 	if _, err := reader.Read(); err != nil {
-		return err
+		http.Error(w, "Failed to read CSV header: "+err.Error(), http.StatusInternalServerError)
+		return
 	}
-
-	tx, err := s.DB.Begin()
-	if err != nil {
-		return err
-	}
-	defer tx.Rollback()
-
-	stmt, err := tx.Prepare(`INSERT INTO ` + tableName + ` (
-		id, game, url, rating, category, release_date, platforms,
-		genres, themes, companies, description
-		) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
-	if err != nil {
-		return err
-	}
-	defer stmt.Close()
-
-	updateStmt, err := tx.Prepare(`UPDATE ` + tableName + ` SET
-		game = ?, url = ?, rating = ?, category = ?, release_date = ?, platforms = ?,
-		genres = ?, themes = ?, companies = ?, description = ?
-		WHERE id = ?`)
-	if err != nil {
-		return err
-	}
-	defer updateStmt.Close()
 
 	for {
 		record, err := reader.Read()
@@ -94,71 +70,84 @@ func (s *Server) importGames(w http.ResponseWriter, r *http.Request, tableName s
 			break
 		}
 		if err != nil {
-			return err
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
 		}
 
-		id, _ := strconv.Atoi(record[0])
-		rating, _ := strconv.ParseFloat(record[3], 64)
+		nowPlaying, _ := strconv.ParseBool(record[5])
+		backlogged, _ := strconv.ParseBool(record[6])
+		rating, _ := strconv.ParseFloat(record[9], 64)
+
 		game := models.Game{
-			ID:           id,
-			Game:         record[1],
-			URL:          record[2],
-			Rating:       rating,
-			Category:     record[4],
-			Release_Date: record[5],
-			Platforms:    record[6],
-			Genres:       record[7],
-			Themes:       record[8],
-			Companies:    record[9],
-			Description:  record[10],
+			Name:               record[0],
+			Edition:            record[1],
+			Platform:           record[2],
+			Format:             record[3],
+			Region:             record[4],
+			NowPlaying:         nowPlaying,
+			Backlogged:         backlogged,
+			OwnershipStatus:    record[7],
+			ProgressStatus:     record[8],
+			Rating:             rating,
+			InitialReleaseDate: record[10],
+			ItemReleaseDate:    record[11],
+			AddedOn:            record[12],
+			Genre:              record[13],
 		}
 
-		var existingID int
-		err = tx.QueryRow("SELECT id FROM "+tableName+" WHERE id = ?", game.ID).Scan(&existingID)
-		if err == nil {
-			_, err = updateStmt.Exec(
-				game.Game, game.URL, game.Rating, game.Category, game.Release_Date, game.Platforms,
-				game.Genres, game.Themes, game.Companies, game.Description, game.ID)
+		var exists bool
+		err = s.DB.QueryRow("SELECT EXISTS(SELECT 1 FROM "+tableName+" WHERE name = ? AND platform = ?)", game.Name, game.Platform).Scan(&exists)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		if exists {
+			_, err = s.DB.Exec(`UPDATE `+tableName+` SET
+				edition = ?, format = ?, region = ?, now_playing = ?,
+				backlogged = ?, ownership_status = ?, progress_status = ?, rating = ?,
+				initial_release_date = ?, item_release_date = ?, added_on = ?, genre = ?
+				WHERE name = ? AND platform = ?`,
+				game.Edition, game.Format, game.Region, game.NowPlaying, game.Backlogged,
+				game.OwnershipStatus, game.ProgressStatus, game.Rating, game.InitialReleaseDate,
+				game.ItemReleaseDate, game.AddedOn, game.Genre, game.Name, game.Platform)
 			if err != nil {
-				return err
+				http.Error(w, err.Error(), http.StatusInternalServerError)
+				return
 			}
 			updated++
-		} else if err == sql.ErrNoRows {
-			_, err := stmt.Exec(
-				game.ID, game.Game, game.URL, game.Rating, game.Category, game.Release_Date,
-				game.Platforms, game.Genres, game.Themes, game.Companies, game.Description)
+		} else {
+			_, err = s.DB.Exec(`INSERT INTO `+tableName+` (
+				name, edition, platform, format, region, now_playing, backlogged,
+				ownership_status, progress_status, rating, initial_release_date,
+				item_release_date, added_on, genre
+				) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+				game.Name, game.Edition, game.Platform, game.Format, game.Region,
+				game.NowPlaying, game.Backlogged, game.OwnershipStatus, game.ProgressStatus,
+				game.Rating, game.InitialReleaseDate, game.ItemReleaseDate, game.AddedOn,
+				game.Genre)
 			if err != nil {
-				return err
+				http.Error(w, err.Error(), http.StatusInternalServerError)
+				return
 			}
 			inserted++
-		} else {
-			return err
 		}
 	}
 
-	if err := tx.Commit(); err != nil {
-		return err
-	}
+	log.Printf("Import completed. Inserted: %d, Updated: %d", inserted, updated)
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(map[string]int{
 		"inserted": inserted,
 		"updated":  updated,
 	})
-
-	return nil
 }
 
 func (s *Server) importSingleGames(w http.ResponseWriter, r *http.Request) {
-	err := s.importGames(w, r, "singleplayer")
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
+	s.importGames(w, r, "singleplayer")
 }
 
 func (s *Server) importMultiGames(w http.ResponseWriter, r *http.Request) {
-	err := s.importGames(w, r, "multiplayer")
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
+	s.importGames(w, r, "multiplayer")
 }
+

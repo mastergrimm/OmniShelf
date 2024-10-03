@@ -1,8 +1,45 @@
-id,game,url,rating,category,release_date,platforms,genres,themes,companies,description
-115,League of Legends,https://www.igdb.com/g/37,7.46578019920992,Main Game,"[""Sep 22, 2011 (China [CH])"", ""Oct 27, 2009 (Worldwide [WW])"", ""Oct 27, 2009 (Worldwide [WW])""]","[""Mac"", ""PC (Microsoft Windows)""]","[""MOBA"", ""Role-playing (RPG)"", ""Strategy""]","[""Action"", ""Fantasy""]","[""Riot Games"", ""Tencent Holdings"", ""GOA Games Services Ltd.""]",""
-114795,Apex Legends,https://www.igdb.com/g/2gkr,7.591074866248644,Main Game,"[""Mar 29, 2022 (Worldwide [WW])"", ""Mar 10, 2021 (Europe [EU])"", ""Feb 04, 2019 (Worldwide [WW])"", ""Feb 04, 2019 (Worldwide [WW])"", ""Mar 09, 2021 (Worldwide [WW])"", ""Mar 29, 2022 (Worldwide [WW])"", ""Feb 04, 2019 (Worldwide [WW])""]","[""PlayStation 5"", ""PC (Microsoft Windows)"", ""Nintendo Switch"", ""Xbox Series X|S"", ""PlayStation 4"", ""Xbox One""]","[""Shooter"", ""Tactical""]","[""Action"", ""Science fiction""]","[""Electronic Arts"", ""Respawn Entertainment""]",
-239,StarCraft II: Wings of Liberty,https://www.igdb.com/g/6n,8.714460375448766,Main Game,"[""Jul 27, 2010 ()"", ""Jul 27, 2010 ()""]","[""Mac"", ""PC (Microsoft Windows)""]","[""Real Time Strategy (RTS)"", ""Strategy""]","[""Action"", ""Science fiction"", ""Warfare""]","[""Blizzard Entertainment""]",
-1372,Counter'-Strike: Global Offensive,https://www.igdb.com/g/124,8.187699011377433,Main Game,"[""Aug 21, 2012 (North America [NA])"", ""Aug 21, 2012 ()"", ""Aug 21, 2012 ()"", ""Aug 21, 2012 ()"", ""Aug 21, 2012 ()"", ""Aug 21, 2012 ()""]","[""Mac"", ""PC (Microsoft Windows)"", ""PlayStation 3"", ""Xbox 360"", ""Linux""]","[""Shooter"", ""Tactical""]","[""Action"", ""Warfare""]","[""Valve"", ""Hidden Path Entertainment""]",
-5607,Smite,https://www.igdb.com/g/4br,6.937097721603827,Main Game,"[""Feb 19, 2019 (North America [NA])"", ""Mar 25, 2014 (Worldwide [WW])"", ""Mar 22, 2016 (North America [NA])"", ""Aug 19, 2015 (Worldwide [WW])"", ""TBD (Worldwide [WW])""]","[""Mac"", ""PC (Microsoft Windows)"", ""Nintendo Switch"", ""PlayStation 4"", ""Xbox One""]","[""Adventure"", ""MOBA"", ""Role-playing (RPG)"", ""Strategy""]","[""Action"", ""Fantasy""]","[""Hi-Rez Studios"", ""Tencent Games"", ""Titan Forge Games""]",
-8173,Overwatch,https://www.igdb.com/g/6b1,8.207629264773596,Main Game,"[""May 24, 2016 (Worldwide [WW])"", ""May 24, 2016 (Worldwide [WW])"", ""May 24, 2016 (Worldwide [WW])"", ""Oct 03, 2022 (Worldwide [WW])"", ""Oct 03, 2022 (Worldwide [WW])"", ""Oct 03, 2022 (Worldwide [WW])"", ""Oct 15, 2019 (Worldwide [WW])""]","[""PC (Microsoft Windows)"", ""Nintendo Switch"", ""PlayStation 4"", ""Xbox One""]","[""Shooter"", ""Strategy""]","[""Action"", ""Comedy"", ""Science fiction""]","[""Square Enix"", ""Blizzard Entertainment""]",
-125174,Overwatch 2,https://www.igdb.com/g/2ol2,6.937647891106882,Main Game,"[""Oct 04, 2022 (Worldwide [WW])"", ""Oct 04, 2022 (Worldwide [WW])"", ""Oct 04, 2022 (Worldwide [WW])"", ""Oct 04, 2022 (Worldwide [WW])"", ""Oct 04, 2022 (Worldwide [WW])"", ""Oct 04, 2022 (Worldwide [WW])"", ""Aug 10, 2023 (Worldwide [WW])"", ""Aug 10, 2023 (Worldwide [WW])"", ""Aug 10, 2023 (Worldwide [WW])"", ""Aug 10, 2023 (Worldwide [WW])"", ""Aug 10, 2023 (Worldwide [WW])"", ""Aug 10, 2023 (Worldwide [WW])""]","[""PlayStation 5"", ""PC (Microsoft Windows)"", ""Nintendo Switch"", ""Xbox Series X|S"", ""PlayStation 4"", ""Xbox One""]","[""Shooter""]","[""Action"", ""Science fiction""]","[""Blizzard Entertainment""]",
+Name,Edition,Platform,Format,Region,Now Playing,Backlogged,Ownership Status,Progress Status,Rating,Initial Release Date,Item Release Date,Added On,Genre
+7 Days to Die,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,12/13/2013,12/13/2013,10/02/2024,Survival Horror
+Aim Lab,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,,,10/02/2024,
+Among Us,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,6/15/2018,,10/02/2024,Party
+Apex Legends,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,9,02/04/2019,,10/02/2024,Battle Royale
+ArcheAge,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,7/23/2013,9/16/2014,10/02/2024,RPG
+Black Desert Online,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,03/03/2016,,10/02/2024,Action RPG
+Brawlhalla,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,,,10/02/2024,
+Business Tour,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,,,10/02/2024,
+Counter-Strike: Global Offensive,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,,,10/02/2024,First-person Shooter
+Dark and Darker,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,06/07/2024,,10/02/2024,
+DayZ,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,07/09/2012,07/09/2012,10/02/2024,Survival
+Deceit,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,03/03/2017,,10/02/2024,First-person Shooter
+Deep Rock Galactic,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,2/28/2018,,10/02/2024,First-person Shooter
+Destiny 2,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,09/06/2017,,10/02/2024,First-person Shooter
+EVE Online,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,2,05/06/2003,,10/02/2024,Space Trading and Combat Simulation
+Final Fantasy XIV: A Realm Reborn,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,8/22/2013,,10/02/2024,JRPG
+Garry's Mod,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,11/29/2006,,10/02/2024,First-person Shooter
+Guild Wars,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,4/26/2005,,10/02/2024,Action RPG
+In Silence,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,,,10/02/2024,
+Killing Floor,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,,,10/02/2024,
+Killing Floor 2,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,11/18/2016,11/18/2016,10/02/2024,First-person Shooter
+Last Epoch,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,,,10/02/2024,
+League of Legends,,PC / Windows,Digital,EU,No,No,Owned,N/A,8,,,10/02/2024,MOBA
+Left 4 Dead 2,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,11/17/2009,,10/02/2024,First-person Shooter
+Loadout,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,,,10/02/2024,
+Lost Ark,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,,,10/02/2024,Action RPG
+MultiVersus,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,7/19/2022,,10/02/2024,Fighting
+New World,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,9/28/2021,,10/02/2024,RPG
+Payday 2,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,8/13/2013,,10/02/2024,First-person Shooter
+PlanetSide 2,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,11/20/2012,,10/02/2024,First-person Shooter
+Rift,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,03/01/2011,03/01/2011,10/02/2024,Action RPG
+Rocket League,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,10,07/07/2015,,10/02/2024,Sports (Futuristic)
+RuneScape,,PC / Windows,Digital,EU,No,No,Owned,N/A,8,01/04/2001,01/04/2001,10/02/2024,RPG
+Rust,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,12/11/2013,,10/02/2024,Survival
+Secret Neighbor,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,,,10/02/2024,
+Star Trek Online,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,02/02/2010,02/02/2010,10/02/2024,RPG
+StarCraft II: Wings of Liberty,,PC / Windows,Digital,EU,No,No,Owned,N/A,10,7/27/2010,,10/02/2024,Real-time Strategy
+Tera,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,1/25/2011,05/01/2012,10/02/2024,RPG
+Trackmania 2: Stadium,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,,,10/02/2024,Racing
+TrackMania Nations Forever,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,,,10/02/2024,
+Tribes: Ascend,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,,,10/02/2024,
+War Selection,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,,,10/02/2024,
+Warframe,,PC / Windows,Digital (Steam),NA,No,Yes,Owned,Incomplete,,3/25/2013,,10/02/2024,Third-person Shooter
+World of Warcraft,,PC / Windows,Digital,EU,No,No,Owned,N/A,,11/23/2004,,10/02/2024,RPG

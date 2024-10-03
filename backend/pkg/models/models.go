@@ -97,15 +97,18 @@ type Manga struct {
 }
 
 type Game struct {
-	ID           int     `json:"id" db:"id"`
-	Game         string  `json:"game" db:"game"`
-	URL          string  `json:"url" db:"url"`
-	Rating       float64 `json:"rating" db:"rating"`
-	Category     string  `json:"category" db:"category"`
-	Release_Date string  `json:"release_date" db:"release_date"`
-	Platforms    string  `json:"platforms" db:"platforms"`
-	Genres       string  `json:"genres" db:"genres"`
-	Themes       string  `json:"themes" db:"themes"`
-	Companies    string  `json:"companies" db:"companies"`
-	Description  string  `json:"description" db:"description"`
+	Name               string  `json:"name" db:"name"`
+	Edition            string  `json:"edition" db:"edition"`
+	Platform           string  `json:"platform" db:"platform"`
+	Format             string  `json:"format" db:"format"`
+	Region             string  `json:"region" db:"region"`
+	NowPlaying         bool    `json:"now_playing" db:"now_playing"`
+	Backlogged         bool    `json:"backlogged" db:"backlogged"`
+	OwnershipStatus    string  `json:"ownership_status" db:"ownership_status"`
+	ProgressStatus     string  `json:"progress_status" db:"progress_status"`
+	Rating             float64 `json:"rating" db:"rating"`
+	InitialReleaseDate string  `json:"initial_release_date" db:"initial_release_date"`
+	ItemReleaseDate    string  `json:"item_release_date" db:"item_release_date"`
+	AddedOn            string  `json:"added_on" db:"added_on"`
+	Genre              string  `json:"genre" db:"genre"`
 }

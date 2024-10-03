@@ -6,7 +6,9 @@
 <Listing
 	title="Movies"
 	items={movies}
-	formAction="?/moviesUpload"
+	formUpload="?/moviesUpload"
+	formDelete="?/mediaDelete"
 	itemKey="title"
 	link="movies"
+	itemScore="your_rating"
 />
