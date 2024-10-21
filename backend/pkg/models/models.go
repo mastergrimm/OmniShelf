@@ -71,7 +71,7 @@ type Anime struct {
 }
 
 type Manga struct {
-	Manga_MangaDB_ID     int     `json:"manga_mangadb_id" db:"manga_manga_db_id"`
+	Manga_MangaDB_ID     int     `json:"manga_mangadb_id" db:"manga_mangadb_id"`
 	Manga_Title          string  `json:"manga_title" db:"manga_title"`
 	Manga_Volumes        int     `json:"manga_volumes" db:"manga_volumes"`
 	Manga_Chapters       int     `json:"manga_chapters" db:"manga_chapters"`

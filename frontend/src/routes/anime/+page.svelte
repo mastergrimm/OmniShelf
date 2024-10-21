@@ -8,7 +8,7 @@
 	$: anime = data.anime;
 </script>
 
-<div class="books-page">
+<div class="page">
 	<h1>My Anime</h1>
 	<Anime {anime} />
 </div>

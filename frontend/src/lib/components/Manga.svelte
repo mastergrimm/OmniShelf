@@ -1,6 +1,12 @@
 <script lang="ts">
 	import Listing from "./Listing.svelte";
-	export let manga: any[];
+
+	import type { Manga } from "$lib/types/types";
+	export let manga: Manga[];
+
+	function getExternalLink(item: Manga | any) {
+		return `https://myanimelist.net/manga/${item.manga_mangadb_id}`;
+	}
 </script>
 
 <Listing
@@ -11,4 +17,5 @@
 	itemKey="manga_title"
 	itemScore="my_score"
 	link="manga"
+	{getExternalLink}
 />

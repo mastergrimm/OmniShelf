@@ -1,6 +1,11 @@
 <script lang="ts">
 	import Listing from "./Listing.svelte";
-	export let movies: any[];
+	import type { Media } from "$lib/types/types";
+	export let movies: Media[];
+
+	function getExternalLink(item: Media | any) {
+		return `https://www.imdb.com/title/${item.const}`;
+	}
 </script>
 
 <Listing
@@ -11,4 +16,5 @@
 	itemKey="title"
 	link="movies"
 	itemScore="your_rating"
+	{getExternalLink}
 />

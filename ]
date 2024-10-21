@@ -42,10 +42,10 @@
 	</div>
 	<div class="grid__list">
 		{#if loading}
-			<div class="grid__empty">Loading...</div>
+			<div class="grid__item">Loading...</div>
 		{/if}
 		{#if items.length === 0}
-			<div class="grid__empty">No {title.toLowerCase()} found</div>
+			<div class="grid__zero">No {title.toLowerCase()} found</div>
 		{:else}
 			{#key items}
 				{#each items as item, index}
@@ -76,6 +76,10 @@
 
 <style lang="scss">
 	.grid {
+		border: 2px solid var(--clr-info-200);
+		border-radius: var(--rounded-lg);
+		padding: var(--spacing-4);
+
 		max-width: 600px;
 	}
 
@@ -87,8 +91,10 @@
 
 	.grid__upload {
 		display: flex;
+		align-items: center;
 
 		margin: var(--spacing-4) 0;
+		width: 100%;
 
 		input[type="file"] {
 			width: 100%;
@@ -97,7 +103,6 @@
 		form {
 			display: flex;
 			border-radius: var(--rounded-lg);
-			flex: 1;
 			overflow: hidden;
 		}
 
@@ -105,7 +110,6 @@
 			background-color: var(--clr-info-200);
 			padding: var(--spacing-2) var(--spacing-4);
 			color: var(--clr-info-900);
-			flex: 1;
 
 			&:hover {
 				background-color: var(--clr-success-300);
@@ -130,44 +134,50 @@
 	.grid__list {
 		display: flex;
 		flex-direction: column;
+		align-items: flex-start;
 		gap: var(--spacing-4);
 
 		margin-top: var(--spacing-6);
 	}
 
 	.grid__item {
+		border-radius: var(--rounded-lg);
 		width: 100%;
 
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		gap: var(--spacing-2);
+		height: 40px;
 
 		border: 1px solid var(--clr-info-200);
-
-		padding: var(--spacing-4);
 
 		.item__score {
 			font-weight: bold;
 			letter-spacing: 0.04em;
 			font-size: var(--text-xl);
 
+			border-radius: var(--rounded-full);
+			background-color: var(--clr-error-900);
+			width: 50px;
+			height: 50px;
 			display: flex;
 			justify-content: center;
 			align-items: center;
+
+			margin-left: -8px;
 		}
 
 		.item__title {
 			font-weight: 500;
 			letter-spacing: 0.04em;
 			font-size: var(--text-sm);
+			padding: var(--spacing-4);
 			text-align: right;
 		}
 	}
 
 	.grid__empty {
 		padding: var(--spacing-4);
-		width: 100%;
 		text-align: center;
 	}
 

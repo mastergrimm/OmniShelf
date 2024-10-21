@@ -1,31 +1,26 @@
 <script lang="ts">
 	import "$lib/styles/app.scss";
+	import "$lib/styles/app.css";
+
 	import type { LayoutData } from "./$types";
+	import ThemeSwitcher from "$lib/components/ThemeSwitcher.svelte";
+
 	export let data: LayoutData;
 </script>
 
 <main>
-	<div class="header">
+	<a href="/" class="header">
 		<div class="title">OmniShelf</div>
 		<div class="caption">Collection of media</div>
-	</div>
+		<div class="theme">
+			<ThemeSwitcher />
+		</div>
+	</a>
 	<slot {data} />
 </main>
 
-<style lang="scss">
+<style lang="postcss">
 	main {
-		padding: 5%;
-	}
-	.header {
-		margin-bottom: var(--spacing-8);
-	}
-	.title {
-		font-size: var(--text-5xl);
-		font-weight: bold;
-		text-align: center;
-	}
-	.caption {
-		font-size: var(--text-2xl);
-		text-align: center;
+		@apply p-[5%];
 	}
 </style>

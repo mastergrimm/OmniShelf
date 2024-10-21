@@ -22,7 +22,7 @@
 	$: multiplayer = data.multiplayer.slice(0, rankingLimit);
 </script>
 
-<div class="home">
+<div class="">
 	<Movies {movies} />
 	<TvShows {tvShows} />
 	<Books {books} />
@@ -33,10 +33,4 @@
 </div>
 
 <style lang="scss">
-	.home {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		grid-gap: var(--spacing-8);
-	}
 </style>
-

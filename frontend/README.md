@@ -1,38 +1,37 @@
-# create-svelte
+# Omnishelf
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+Save your favourite media all in one place.
 
-## Creating a project
+## Stack
 
-If you're seeing this, you've probably already done this step. Congrats!
+**Frontend**
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+- SvelteKit
+- TailwindCSS
+- Iconify
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+**Backend**
 
-## Developing
+- Go
+- SQLite3
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Features
 
-```bash
-npm run dev
+- Dashboard to see an overview of your saved media
+- Add media to your shelf
+- Search for media to add to your shelf
+- View media details
+- Remove media from your shelf
+- Dark/Light mode
+- Responsive design
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+## Installation
 
-## Building
+1. Clone the repository
+2. Run 'docker compose up' in the root directory
+3. Navigate to 'localhost:5173' in your browser to access the frontend
+4. Navigate to 'localhost:8080' in your browser to access the backend
 
-To create a production version of your app:
+## Screenshots
 
-```bash
-npm run build
-```
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.

@@ -1,6 +1,11 @@
 <script lang="ts">
 	import Listing from "./Listing.svelte";
-	export let multiplayer: any[];
+	import type { Game } from "$lib/types/types";
+	export let multiplayer: Game[];
+
+	function getExternalLink(item: Game | any) {
+		return `https://store.steampowered.com/app/${item.appid}`;
+	}
 </script>
 
 <Listing
@@ -11,4 +16,5 @@
 	itemKey="name"
 	itemScore="rating"
 	link="multiplayer"
+	{getExternalLink}
 />
